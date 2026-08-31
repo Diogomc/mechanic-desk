@@ -11,4 +11,12 @@ public class WorkOrder
 
     public List<WorkOrderService> WorkOrderServices { get; set; } = new ();
     public List<WorkOrderParts> WorkOrderParts { get; set; } = new ();
+
+
+    public int ClientId { get; set; }
+    public Client Client { get; set; }
+
+    
+    public int CarId { get; set; }
+    public Car Car { get; set; }
 }

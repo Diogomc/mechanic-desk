@@ -1,4 +1,6 @@
-﻿namespace MechanicDesk.Models;
+﻿using MechanicDesk.Models.WorkOrderAgg;
+
+namespace MechanicDesk.Models;
 
 public class Car
 {
@@ -9,6 +11,8 @@ public class Car
     public string LicencePlate { get; set; } = string.Empty;
 
     public int ClientId { get; set; }
-    public Client Client { get; set; }
+    public Client Client { get; set; } 
+
+    public ICollection<WorkOrder> WorkOrders { get; set; } = new List<WorkOrder>();
 
 }
