@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5HE3F0EGINs=",
+  "dgSpecHash": "r62g+qInVKU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Diogo\\Desktop\\mechanicDesk\\MechanicDesk\\MechanicDesk\\MechanicDesk.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Diogo\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512"
   ],
