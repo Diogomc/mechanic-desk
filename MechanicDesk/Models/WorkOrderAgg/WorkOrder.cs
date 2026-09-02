@@ -7,6 +7,7 @@ public class WorkOrder
     public DateTime InitialDate { get; set; }
     public DateTime? FinalDate { get; set; }
     public string WorkerName { get; set; } = string.Empty;
+    public bool IsFinished { get; set; }
 
 
     public List<WorkOrderService> WorkOrderServices { get; set; } = new ();
