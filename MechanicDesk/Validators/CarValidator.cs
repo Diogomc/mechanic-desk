@@ -7,9 +7,9 @@ public class CarValidator : AbstractValidator<Car>
 {
     public CarValidator()
     {
-        RuleFor(c => c.Name)
-            .NotEmpty().WithMessage("Car name is required.")
-            .MaximumLength(20).WithMessage("Car name cannot exceed 20 characters.");
+        RuleFor(c => c.Model)
+            .NotEmpty().WithMessage("Car model is required.")
+            .MaximumLength(20).WithMessage("Car model cannot exceed 20 characters.");
 
         RuleFor(c => c.Year)
             .GreaterThan(1900).WithMessage("The car year must be greater than 1900.");
