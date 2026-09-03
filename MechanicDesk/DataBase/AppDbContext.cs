@@ -1,4 +1,5 @@
-﻿using MechanicDesk.Models;
+﻿using MechanicDesk.Configuration;
+using MechanicDesk.Models;
 using MechanicDesk.Models.WorkOrderAgg;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,8 +15,9 @@ namespace MechanicDesk.DataBase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Client>();
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
         }
+
         public DbSet<Client> Clients { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<WorkOrder> WorkOrders { get; set; }
