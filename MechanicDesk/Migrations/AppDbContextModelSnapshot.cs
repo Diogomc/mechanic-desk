@@ -140,7 +140,7 @@ namespace MechanicDesk.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<int>("WorkOrderId")
                         .HasColumnType("int");
@@ -161,7 +161,7 @@ namespace MechanicDesk.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("ServiceName")
                         .IsRequired()
@@ -200,7 +200,7 @@ namespace MechanicDesk.Migrations
                     b.HasOne("MechanicDesk.Models.Client", "Client")
                         .WithMany("WorkOrders")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Car");

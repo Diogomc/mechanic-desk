@@ -40,10 +40,12 @@ public class WorkOrderConfiguration : IEntityTypeConfiguration<WorkOrder>
 
         builder.HasOne(wo => wo.Client)
             .WithMany(wo => wo.WorkOrders)
-            .HasForeignKey(wo => wo.ClientId);
+            .HasForeignKey(wo => wo.ClientId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(wo => wo.Car)
             .WithMany(wo => wo.WorkOrders)
+            .OnDelete(DeleteBehavior.Cascade)
             .HasForeignKey(wo => wo.CarId);
     }
 }
