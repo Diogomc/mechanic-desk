@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MechanicDesk.Configuration;
+namespace MechanicDesk.Configuration.WorkOrderAggConfiguration;
 
 public class WorkOrderConfiguration : IEntityTypeConfiguration<WorkOrder>
 {
