@@ -1,0 +1,9 @@
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.csproj.AssemblyReference.cache
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.AssemblyInfoInputs.cache
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.AssemblyInfo.cs
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.sourcelink.json
