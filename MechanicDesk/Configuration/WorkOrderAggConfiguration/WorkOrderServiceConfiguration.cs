@@ -15,7 +15,9 @@ public class WorkOrderServiceConfiguration : IEntityTypeConfiguration<WorkOrderS
             .HasMaxLength(100);
 
         builder.Property(ws => ws.Price)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType("decimal(10,2)");
+
 
         builder.HasOne(ws => ws.WorkOrder)
             .WithMany(ws => ws.WorkOrderServices)

@@ -16,7 +16,8 @@ public class WorkOrderPartsConfiguration : IEntityTypeConfiguration<WorkOrderPar
             .HasMaxLength(100);
 
         builder.Property(wp => wp.Price)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType("decimal(10,2)");
 
         builder.HasOne(wp => wp.WorkOrder)
             .WithMany(wp => wp.WorkOrderParts)
