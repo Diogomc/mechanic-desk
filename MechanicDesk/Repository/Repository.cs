@@ -37,11 +37,5 @@ public class Repository<T> : IRepository<T> where T : class
     {
         _context.Set<T>().Remove(entity);
         return entity;
-    }
-
-    
-
-    
-
-    
+    }  
 }
