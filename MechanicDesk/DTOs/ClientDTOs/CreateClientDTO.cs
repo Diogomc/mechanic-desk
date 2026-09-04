@@ -1,6 +1,6 @@
 ﻿namespace MechanicDesk.DTOs.ClientDTOs;
 
-public class ClientCreateDTO
+public class CreateClientDTO
 {
     public string Name { get; set; } = string.Empty;
     public string PhoneNumber { get; set; } = string.Empty;

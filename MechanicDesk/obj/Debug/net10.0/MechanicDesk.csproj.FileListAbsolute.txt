@@ -19,7 +19,6 @@ C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Azure.Identity.dll
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\FluentValidation.dll
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Humanizer.dll
-C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Microsoft.Build.Framework.dll
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
@@ -166,3 +165,6 @@ C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.pdb
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\MechanicDesk.genruntimeconfig.cache
 C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\obj\Debug\net10.0\ref\MechanicDesk.dll
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Diogo\Desktop\mechanicDesk\MechanicDesk\MechanicDesk\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
