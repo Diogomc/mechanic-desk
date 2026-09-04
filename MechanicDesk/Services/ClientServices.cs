@@ -1,20 +1,21 @@
 ﻿using MechanicDesk.DataBase;
 using MechanicDesk.Models;
 using MechanicDesk.Services.Interfaces;
+using MechanicDesk.UnitOfWork;
 
 namespace MechanicDesk.Services;
 
 public class ClientServices : IClientServices
 {
-    private readonly AppDbContext _appDbContext;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public ClientServices(AppDbContext appDbContext)
+    public ClientServices(IUnitOfWork unitOfWork)
     {
-        _appDbContext = appDbContext;
+        _unitOfWork = unitOfWork;
     }
 
     public IEnumerable<Client> GetAll()
     {
-        return _appDbContext.Clients.ToList();
+        return _unitOfWork.Clients.GetAll();
     }
 }

@@ -1,5 +1,13 @@
-﻿namespace MechanicDesk.UnitOfWork;
+﻿using MechanicDesk.Repository.CarRepository;
+using MechanicDesk.Repository.ClientRepository;
+using MechanicDesk.Repository.WorkOrderRepository;
 
-public interface IUnitOfWork
+namespace MechanicDesk.UnitOfWork;
+
+public interface IUnitOfWork : IDisposable
 {
+    IClientRepository Clients { get; }
+    ICarRepository Cars { get; }
+    IWorkOrderRepository WorkOrders { get; }
+    void Commit();
 }

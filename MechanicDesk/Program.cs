@@ -1,6 +1,11 @@
 using MechanicDesk.DataBase;
+using MechanicDesk.Repository;
+using MechanicDesk.Repository.CarRepository;
+using MechanicDesk.Repository.ClientRepository;
+using MechanicDesk.Repository.WorkOrderRepository;
 using MechanicDesk.Services;
 using MechanicDesk.Services.Interfaces;
+using MechanicDesk.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +25,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddScoped<IClientServices, ClientServices>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped <ICarRepository, CarRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IWorkOrderRepository, WorkOrderRepository>();
+
 
 var app = builder.Build();
 

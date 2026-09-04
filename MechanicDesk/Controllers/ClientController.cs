@@ -1,5 +1,6 @@
 ﻿using MechanicDesk.Models;
 using MechanicDesk.Services.Interfaces;
+using MechanicDesk.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MechanicDesk.Controllers;
@@ -8,16 +9,16 @@ namespace MechanicDesk.Controllers;
 [Route("[controller]")]
 public class ClientController : ControllerBase
 {
-    private readonly IClientServices _clientServices;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public ClientController(IClientServices clientServices)
+    public ClientController(IUnitOfWork unitOfWork)
     {
-        _clientServices = clientServices;
+        _unitOfWork = unitOfWork;
     }
 
     [HttpGet]
     public IEnumerable<Client> GetAllClients()
     {
-        return _clientServices.GetAll();
+        return _unitOfWork.Clients.GetAll();
     }
 }

@@ -2,6 +2,6 @@
 
 namespace MechanicDesk.Repository.WorkOrderRepository;
 
-public interface IWorkOrder : IRepository<WorkOrder>
+public interface IWorkOrderRepository : IRepository<WorkOrder>
 {
 }
