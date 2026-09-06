@@ -1,4 +1,6 @@
-﻿using MechanicDesk.Models;
+﻿using MechanicDesk.DTOs.ClientDTO;
+using MechanicDesk.Mappers.ClientMappers;
+using MechanicDesk.Models;
 using MechanicDesk.Repository.ClientRepository;
 using MechanicDesk.Services;
 using MechanicDesk.Services.Interfaces;
@@ -20,23 +22,54 @@ public class ClientController : ControllerBase
 
     [HttpGet]
     public IEnumerable<Client> GetAllClients()
-    {    
-        return _clientServices.GetAll();            
+    {
+        return _clientServices.GetAll();
     }
 
     [HttpGet("{id:int}")]
     public IActionResult GetById(int id)
     {
-        try { 
-            var client = _clientServices.GetById(c => c.Id == id);
+        try {
+            var client = _clientServices.GetById(id);
             return Ok(client);
         }
         catch (KeyNotFoundException)
         {
             return NotFound($"Client by id: {id} is not found");
         }
+    }
+    [HttpPost]
+    public ActionResult<ClientDTO> CreateClient(ClientDTO clientDTO)
+    {
+        try {
+            var dto = clientDTO.ToClient();
+            var create = _clientServices.Create(clientDTO);
 
+            return CreatedAtAction(nameof(GetById), new { id = client.Id }, create);
+
+        } catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
+    [HttpPut("{id:int}")]
+    public IActionResult UpdateClient(int id, Client client)
+    {
+       var update = _clientServices.Update(id, client);
+        return Ok(update);
+    }
+
+    [HttpDelete("{id:int}")]
+    public IActionResult DeleteClient(int id)
+    {
+        var delete = _clientServices.Delete(id);
+
+        return Ok(delete);
+    }
+
+   
+        
+         
 
 }

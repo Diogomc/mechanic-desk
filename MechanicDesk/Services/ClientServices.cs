@@ -2,6 +2,8 @@
 using MechanicDesk.Models;
 using MechanicDesk.Services.Interfaces;
 using MechanicDesk.UnitOfWork;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
 namespace MechanicDesk.Services;
@@ -14,47 +16,52 @@ public class ClientServices : IClientServices
     {
         _unitOfWork = unitOfWork;
     }
+
     public IEnumerable<Client> GetAll()
     {
-        var clientsList = _unitOfWork.Clients.GetAll();
+        return _unitOfWork.Clients.GetAll();
+    }
+    public Client GetById(int id)
+    {
+        var getId = _unitOfWork.Clients.GetById(c => c.Id == id);
 
-        if(clientsList is null)
-        {
-            throw new KeyNotFoundException();
+        if (getId is null) 
+        { 
+            throw new KeyNotFoundException($"Client by id: {id} is not found");
         }
 
-        return clientsList;
+        return getId; 
     }
-    public Client GetById(Expression<Func<Client, bool>> predicate)
+    public Client Create(Client client)
     {
-        var clientId = _unitOfWork.Clients.GetById(predicate);
+        var create = _unitOfWork.Clients.Create(client);
+        _unitOfWork.Commit();
+        return create;
+    }
+    public Client Update(int id, Client client)
+    {
+        var update = _unitOfWork.Clients.Update(client);
 
-        if(clientId is null)
+        if (update is null) throw new KeyNotFoundException($"Client by id: {id} is not found");
+
+        if(client.Id != id) throw new ArgumentException("IDs do not match");
+        _unitOfWork.Commit();
+        return update;
+
+    }
+    public Client Delete(int id)
+    {
+        var getId = _unitOfWork.Clients.GetById(c => c.Id == id);
+
+        if(getId is null)
         {
-            throw new KeyNotFoundException("Client not found");
+            throw new KeyNotFoundException($"Client by id: {id} is not found");
         }
-        return clientId;
-    }
 
-    public Client Create(Client entity)
-    {
-        var created = _unitOfWork.Clients.Create(entity);
-        _unitOfWork.Commit();
-        return created;
-    }
-
-    public Client Update(Client entity)
-    {
-        var updated = _unitOfWork.Clients.Update(entity);
-        _unitOfWork.Commit();
-        return updated;
-    }
-
-    public Client Delete(Client entity)
-    {
-        var deleted = _unitOfWork.Clients.Delete(entity);
+        var deleted = _unitOfWork.Clients.Delete(getId);
         _unitOfWork.Commit();
         return deleted;
-    }
-     
+    }   
+
+    
 }

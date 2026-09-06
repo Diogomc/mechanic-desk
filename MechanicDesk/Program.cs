@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MechanicDesk.DataBase;
 using MechanicDesk.Repository;
 using MechanicDesk.Repository.CarRepository;
@@ -6,12 +8,17 @@ using MechanicDesk.Repository.WorkOrderRepository;
 using MechanicDesk.Services;
 using MechanicDesk.Services.Interfaces;
 using MechanicDesk.UnitOfWork;
+using MechanicDesk.Validators;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<ClientValidator>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -30,6 +37,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped <ICarRepository, CarRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IWorkOrderRepository, WorkOrderRepository>();
+
 
 
 var app = builder.Build();
