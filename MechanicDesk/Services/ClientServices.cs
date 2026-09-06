@@ -1,4 +1,6 @@
 ﻿using MechanicDesk.DataBase;
+using MechanicDesk.DTOs.ClientDTO;
+using MechanicDesk.Mappers.ClientMappers;
 using MechanicDesk.Models;
 using MechanicDesk.Services.Interfaces;
 using MechanicDesk.UnitOfWork;
@@ -32,11 +34,15 @@ public class ClientServices : IClientServices
 
         return getId; 
     }
-    public Client Create(Client client)
+    public Client Create(CreateClientDTO createClientDTO)
     {
-        var create = _unitOfWork.Clients.Create(client);
+        var created = createClientDTO.ToClient();
+
+        _unitOfWork.Clients.Create(created);
         _unitOfWork.Commit();
-        return create;
+
+        return created;
+        
     }
     public Client Update(int id, Client client)
     {

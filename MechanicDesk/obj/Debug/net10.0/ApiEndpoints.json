@@ -28,12 +28,22 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "client",
-        "Type": "MechanicDesk.Models.Client",
+        "Name": "createClientDTO",
+        "Type": "MechanicDesk.DTOs.ClientDTO.CreateClientDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "MechanicDesk.DTOs.ClientDTO.ClientDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MechanicDesk.Controllers.ClientController",

@@ -39,13 +39,12 @@ public class ClientController : ControllerBase
         }
     }
     [HttpPost]
-    public ActionResult<ClientDTO> CreateClient(ClientDTO clientDTO)
+    public ActionResult<ClientDTO> CreateClient(CreateClientDTO createClientDTO)
     {
         try {
-            var dto = clientDTO.ToClient();
-            var create = _clientServices.Create(clientDTO);
+            var create = _clientServices.Create(createClientDTO);
 
-            return CreatedAtAction(nameof(GetById), new { id = client.Id }, create);
+            return CreatedAtAction(nameof(GetById), new { id = create.Id }, create);
 
         } catch (Exception ex)
         {
@@ -66,10 +65,6 @@ public class ClientController : ControllerBase
         var delete = _clientServices.Delete(id);
 
         return Ok(delete);
-    }
-
-   
-        
-         
-
+    }      
+                
 }

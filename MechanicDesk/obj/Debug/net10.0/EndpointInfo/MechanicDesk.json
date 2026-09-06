@@ -50,24 +50,41 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Client"
+                "$ref": "#/components/schemas/CreateClientDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Client"
+                "$ref": "#/components/schemas/CreateClientDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Client"
+                "$ref": "#/components/schemas/CreateClientDTO"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDTO"
+                }
+              }
+            }
           }
         }
       }
@@ -231,6 +248,46 @@
               "$ref": "#/components/schemas/WorkOrder"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateClientDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
