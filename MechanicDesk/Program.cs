@@ -9,6 +9,7 @@ using MechanicDesk.Services;
 using MechanicDesk.Services.Interfaces;
 using MechanicDesk.UnitOfWork;
 using MechanicDesk.Validators;
+using MechanicDesk.Validators.DTOValidators.ClientDTOValidator;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<ClientValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateClientDTOValidator>();
 
 
 builder.Services.AddEndpointsApiExplorer();

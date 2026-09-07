@@ -75,12 +75,22 @@
         "IsRequired": true
       },
       {
-        "Name": "client",
-        "Type": "MechanicDesk.Models.Client",
+        "Name": "updateClientDTO",
+        "Type": "MechanicDesk.DTOs.ClientDTO.UpdateClientDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "MechanicDesk.DTOs.ClientDTO.UpdateClientDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MechanicDesk.Controllers.ClientController",

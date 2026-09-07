@@ -10,6 +10,6 @@ public interface IClientServices
     IEnumerable<Client> GetAll();
     Client GetById(int id);
     Client Create(CreateClientDTO createClientDTO);
-    Client Update(int id, Client client);
+    Client Update(int id, UpdateClientDTO updateClientDTO);
     Client Delete(int id);
 }

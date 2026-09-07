@@ -44,13 +44,14 @@ public class ClientServices : IClientServices
         return created;
         
     }
-    public Client Update(int id, Client client)
+    public Client Update(int id, UpdateClientDTO updateClientDTO)
     {
-        var update = _unitOfWork.Clients.Update(client);
+        var client = updateClientDTO.ToClient();
+        if (client.Id != id) throw new ArgumentException("IDs do not match");
 
+        var update = _unitOfWork.Clients.Update(client);
         if (update is null) throw new KeyNotFoundException($"Client by id: {id} is not found");
 
-        if(client.Id != id) throw new ArgumentException("IDs do not match");
         _unitOfWork.Commit();
         return update;
 

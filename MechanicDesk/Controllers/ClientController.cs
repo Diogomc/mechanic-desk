@@ -53,18 +53,34 @@ public class ClientController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-    public IActionResult UpdateClient(int id, Client client)
+    public ActionResult<UpdateClientDTO> UpdateClient(int id, UpdateClientDTO updateClientDTO)
     {
-       var update = _clientServices.Update(id, client);
-        return Ok(update);
+        try
+        {
+            var update = _clientServices.Update(id, updateClientDTO);
+            return Ok(update);
+        }
+        catch (ArgumentException ae)
+        {
+            return BadRequest(ae.Message);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }      
     }
 
     [HttpDelete("{id:int}")]
     public IActionResult DeleteClient(int id)
     {
-        var delete = _clientServices.Delete(id);
-
-        return Ok(delete);
+        try { 
+            var delete = _clientServices.Delete(id);
+            return Ok(delete);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }      
                 
 }

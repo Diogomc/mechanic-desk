@@ -130,24 +130,41 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Client"
+                "$ref": "#/components/schemas/UpdateClientDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Client"
+                "$ref": "#/components/schemas/UpdateClientDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Client"
+                "$ref": "#/components/schemas/UpdateClientDTO"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateClientDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateClientDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateClientDTO"
+                }
+              }
+            }
           }
         }
       },
@@ -277,6 +294,28 @@
       "CreateClientDTO": {
         "type": "object",
         "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateClientDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "name": {
             "type": "string",
             "nullable": true
