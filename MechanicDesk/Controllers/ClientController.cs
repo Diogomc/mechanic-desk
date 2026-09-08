@@ -21,13 +21,13 @@ public class ClientController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<Client> GetAllClients()
+    public ActionResult<IEnumerable<GetClientDTO>> GetAllClients()
     {
-        return _clientServices.GetAll();
+        return Ok(_clientServices.GetAll());
     }
 
     [HttpGet("{id:int}")]
-    public IActionResult GetById(int id)
+    public ActionResult<GetClientDTO> GetById(int id)
     {
         try {
             var client = _clientServices.GetById(id);

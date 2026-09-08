@@ -7,9 +7,9 @@ namespace MechanicDesk.Services.Interfaces;
 
 public interface IClientServices
 {
-    IEnumerable<Client> GetAll();
-    Client GetById(int id);
-    Client Create(CreateClientDTO createClientDTO);
-    Client Update(int id, UpdateClientDTO updateClientDTO);
+    IEnumerable<GetClientDTO> GetAll();
+    GetClientDTO GetById(int id);
+    GetClientDTO Create(CreateClientDTO createClientDTO);
+    UpdateClientDTO Update(int id, UpdateClientDTO updateClientDTO);
     Client Delete(int id);
 }

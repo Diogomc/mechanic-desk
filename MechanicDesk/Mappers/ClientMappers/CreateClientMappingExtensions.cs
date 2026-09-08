@@ -19,6 +19,7 @@ public static class CreateClientMappingExtensions
     {
         return new CreateClientDTO
         {
+            Id = client.Id,
             Name = client.Name,
             PhoneNumber = client.PhoneNumber,
             BirthDate = client.BirthDate

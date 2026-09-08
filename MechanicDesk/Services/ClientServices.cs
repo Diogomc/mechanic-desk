@@ -19,11 +19,12 @@ public class ClientServices : IClientServices
         _unitOfWork = unitOfWork;
     }
 
-    public IEnumerable<Client> GetAll()
+    public IEnumerable<GetClientDTO> GetAll()
     {
-        return _unitOfWork.Clients.GetAll();
+        
+        return _unitOfWork.Clients.GetAll().ToGetClientDTOList();
     }
-    public Client GetById(int id)
+    public GetClientDTO GetById(int id)
     {
         var getId = _unitOfWork.Clients.GetById(c => c.Id == id);
 
@@ -32,19 +33,19 @@ public class ClientServices : IClientServices
             throw new KeyNotFoundException($"Client by id: {id} is not found");
         }
 
-        return getId; 
+        return getId.ToGetClientDTO(); 
     }
-    public Client Create(CreateClientDTO createClientDTO)
+    public GetClientDTO Create(CreateClientDTO createClientDTO)
     {
         var created = createClientDTO.ToClient();
 
         _unitOfWork.Clients.Create(created);
         _unitOfWork.Commit();
 
-        return created;
+        return created.ToGetClientDTO();
         
     }
-    public Client Update(int id, UpdateClientDTO updateClientDTO)
+    public UpdateClientDTO Update(int id, UpdateClientDTO updateClientDTO)
     {
         var client = updateClientDTO.ToClient();
         if (client.Id != id) throw new ArgumentException("IDs do not match");
@@ -53,7 +54,7 @@ public class ClientServices : IClientServices
         if (update is null) throw new KeyNotFoundException($"Client by id: {id} is not found");
 
         _unitOfWork.Commit();
-        return update;
+        return update.ToUpdateClientDTO();
 
     }
     public Client Delete(int id)
