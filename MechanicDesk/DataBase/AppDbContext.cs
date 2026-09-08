@@ -28,6 +28,7 @@ namespace MechanicDesk.DataBase
         public DbSet<WorkOrder> WorkOrders { get; set; }
         public DbSet<WorkOrderParts> WorkOrderParts { get; set; }
         public DbSet<WorkOrderService> WorkOrderServices { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 }

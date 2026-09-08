@@ -1,16 +1,13 @@
 ﻿using MechanicDesk.DTOs.ClientDTO;
-using MechanicDesk.Mappers.ClientMappers;
-using MechanicDesk.Models;
-using MechanicDesk.Repository.ClientRepository;
-using MechanicDesk.Services;
 using MechanicDesk.Services.Interfaces;
-using MechanicDesk.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MechanicDesk.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize(Roles ="Admin")]
 public class ClientController : ControllerBase
 {
     private readonly IClientServices _clientServices;
@@ -39,7 +36,7 @@ public class ClientController : ControllerBase
         }
     }
     [HttpPost]
-    public ActionResult<ClientDTO> CreateClient(CreateClientDTO createClientDTO)
+    public ActionResult<GetClientDTO> CreateClient(CreateClientDTO createClientDTO)
     {
         try {
             var create = _clientServices.Create(createClientDTO);
@@ -74,8 +71,8 @@ public class ClientController : ControllerBase
     public IActionResult DeleteClient(int id)
     {
         try { 
-            var delete = _clientServices.Delete(id);
-            return Ok(delete);
+            _clientServices.Delete(id);
+            return NoContent();
         }
         catch (KeyNotFoundException ex)
         {
