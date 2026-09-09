@@ -23,6 +23,7 @@ builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<ClientValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateClientDTOValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterValidator>();
 
 
 builder.Services.AddEndpointsApiExplorer();

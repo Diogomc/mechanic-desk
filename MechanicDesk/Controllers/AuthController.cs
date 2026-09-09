@@ -53,24 +53,24 @@ public class AuthController : ControllerBase
         }
     }
     [HttpGet]
-    [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "manager, admin")]
     public ActionResult<IEnumerable<User>> GetAllUser()
     {
         return _registerService.GetAllUsers().ToList();
     }
 
-    [HttpDelete]
-    [Authorize(Roles = "Manager")]
-    public IActionResult Delete(string name)
+    [HttpDelete("{id:int}")]
+    [Authorize(Roles = "manager")]
+    public IActionResult Delete(int id)
     {
         try
         {
-            var delete = _registerService.FindUserByName(name);
-            if (name == null) return NotFound("User is not found");
-            _context.Set<User>().Remove(delete);
+            var user = _context.Set<User>().FirstOrDefault(u => u.Id == id);
+            if (user == null) return NotFound("User is not found");
+            _context.Set<User>().Remove(user);
             _context.SaveChanges();
 
-            return Ok(delete);
+            return Ok(user);
         }
         catch (UnauthorizedAccessException)
         {

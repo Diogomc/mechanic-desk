@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MechanicDesk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+571daed2fbf2b2061a3542426b57be23768c443d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a5f2a4c3a49bc733974da9bf41fab7a2d941f5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("MechanicDesk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MechanicDesk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

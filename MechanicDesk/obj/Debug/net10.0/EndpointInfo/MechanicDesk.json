@@ -103,17 +103,21 @@
             }
           }
         }
-      },
+      }
+    },
+    "/Auth/{id}": {
       "delete": {
         "tags": [
           "Auth"
         ],
         "parameters": [
           {
-            "name": "name",
-            "in": "query",
+            "name": "id",
+            "in": "path",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],

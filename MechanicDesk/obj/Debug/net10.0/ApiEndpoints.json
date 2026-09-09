@@ -22,15 +22,15 @@
   {
     "ContainingType": "MechanicDesk.Controllers.AuthController",
     "Method": "Delete",
-    "RelativePath": "Auth",
+    "RelativePath": "Auth/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
