@@ -25,6 +25,10 @@ public class RegisterService : IRegisterService
 
         return userName;
     }
+    public IEnumerable<User> GetAllUsers()
+    {
+        return _appDbContext.Users.ToList();
+    }
 
     public User Register(RegisterDTO registerDTO)
     {

@@ -7,4 +7,5 @@ public interface IRegisterService
 {
     User FindUserByName (string name);
     User Register(RegisterDTO registerDTO);
+    IEnumerable<User> GetAllUsers();
 }
