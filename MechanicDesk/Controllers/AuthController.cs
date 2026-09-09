@@ -34,6 +34,10 @@ public class AuthController : ControllerBase
         {
             return BadRequest(ex.Message);
         }
+        catch(InvalidOperationException ex)
+        {
+            return BadRequest("username already exists");
+        }
     }
 
     [HttpPost("Login")]

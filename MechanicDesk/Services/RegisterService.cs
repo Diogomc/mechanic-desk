@@ -32,8 +32,14 @@ public class RegisterService : IRegisterService
 
     public User Register(RegisterDTO registerDTO)
     {
-        var user = registerDTO.ToUserRegister();
+        var existingUser = _appDbContext.Set<User>()
+            .FirstOrDefault(u => u.UserName.ToLower() == registerDTO.UserName.ToLower());
 
+        if (existingUser != null)
+            throw new InvalidOperationException("Username already existis");
+
+        var user = registerDTO.ToUserRegister();
+        user.UserName = registerDTO.UserName.ToLower();
         user.PasswordHash = _passwordHasher.HashPassword(user, registerDTO.Password);
 
         _appDbContext.Set<User>().Add(user);
