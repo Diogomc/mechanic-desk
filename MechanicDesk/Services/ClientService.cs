@@ -10,11 +10,11 @@ using System.Linq.Expressions;
 
 namespace MechanicDesk.Services;
 
-public class ClientServices : IClientServices
+public class ClientService : IClientServices
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public ClientServices(IUnitOfWork unitOfWork)
+    public ClientService(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
