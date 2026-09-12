@@ -30,11 +30,21 @@ public class WorkOrderService : IWorkOrderService
     }
     public CreateWorkOrderDTO CreateWorkOrder(CreateWorkOrderDTO createWorkOrderDTO)
     {
-        throw new NotImplementedException();
+        var workOrder = createWorkOrderDTO.ToWorkOrder();
+
+        _unitOfWork.WorkOrders.Create(workOrder);
+        _unitOfWork.Commit();
+
+        return workOrder.ToCreateWorkOrderDTO();
 
     }
     public UpdateWorkOrderDTO UpdateWorkOrder(int id, UpdateWorkOrderDTO updateWorkOrderDTO)
     {
-        throw new NotImplementedException();
+        var workOrder = updateWorkOrderDTO.ToWorkOrder();
+
+        var updated = _unitOfWork.WorkOrders.Update(workOrder);
+        _unitOfWork.Commit();
+
+        return updated.ToUpdateWorkOrderDTO();
     }
 }

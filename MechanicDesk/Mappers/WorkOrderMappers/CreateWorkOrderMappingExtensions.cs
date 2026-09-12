@@ -16,5 +16,16 @@ public static class CreateWorkOrderMappingExtensions
             IsFinished = createWorkOrderDTO.IsFinished,
         };
     }
+    public static CreateWorkOrderDTO ToCreateWorkOrderDTO(this WorkOrder workOrder)
+    {
+        return new CreateWorkOrderDTO
+        {
+            ProblemDescription = workOrder.ProblemDescription,
+            InitialDate = workOrder.InitialDate,
+            FinalDate = workOrder.FinalDate,
+            WorkerName = workOrder.WorkerName,
+            IsFinished = workOrder.IsFinished,
+        };
+    }
 
 }
