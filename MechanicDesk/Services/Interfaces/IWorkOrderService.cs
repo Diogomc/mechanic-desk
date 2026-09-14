@@ -1,4 +1,5 @@
 ﻿using MechanicDesk.DTOs.WorkOrderDTO;
+using MechanicDesk.Models.WorkOrderAgg;
 
 namespace MechanicDesk.Services.Interfaces;
 
@@ -6,7 +7,7 @@ public interface IWorkOrderService
 {
     IEnumerable<GetWorkOrderDTO> GetAllWorkOrders();
     GetWorkOrderDTO GetById (int id);
-    CreateWorkOrderDTO CreateWorkOrder(CreateWorkOrderDTO createWorkOrderDTO);
+    GetWorkOrderDTO CreateWorkOrder(CreateWorkOrderDTO createWorkOrderDTO);
     UpdateWorkOrderDTO UpdateWorkOrder(int id, UpdateWorkOrderDTO updateWorkOrderDTO);
-
+    WorkOrder Delete(int id);
 }

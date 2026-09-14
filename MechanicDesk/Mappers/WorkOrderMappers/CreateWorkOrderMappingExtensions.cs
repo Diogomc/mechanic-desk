@@ -24,7 +24,7 @@ public static class CreateWorkOrderMappingExtensions
             InitialDate = workOrder.InitialDate,
             FinalDate = workOrder.FinalDate,
             WorkerName = workOrder.WorkerName,
-            IsFinished = workOrder.IsFinished,
+            IsFinished = workOrder.IsFinished,        
         };
     }
 

@@ -61,6 +61,7 @@ builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IWorkOrderRepository, WorkOrderRepository>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IRegisterService, RegisterService>();
+builder.Services.AddScoped<IWorkOrderService, WorkOrderService>();
 
 var JwtConfig = builder.Configuration.GetSection("JWT");
 
