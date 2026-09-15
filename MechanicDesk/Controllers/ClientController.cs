@@ -7,7 +7,6 @@ namespace MechanicDesk.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-[Authorize(Roles ="Admin")]
 public class ClientController : ControllerBase
 {
     private readonly IClientServices _clientServices;
@@ -22,7 +21,6 @@ public class ClientController : ControllerBase
     {
         return Ok(_clientServices.GetAll());
     }
-
     [HttpGet("{id:int}")]
     public ActionResult<GetClientDTO> GetById(int id)
     {

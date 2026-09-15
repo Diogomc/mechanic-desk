@@ -1,6 +1,7 @@
 ﻿using MechanicDesk.DTOs.WorkOrderDTO;
 using MechanicDesk.Mappers.WorkOrderMappers;
 using MechanicDesk.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MechanicDesk.Controllers;
@@ -15,6 +16,7 @@ public class WorkOrderController : ControllerBase
         _workOrderService = workOrderService;
     }
     [HttpGet]
+    [Authorize(Roles = "manager, admin")]
     public ActionResult<IEnumerable<GetWorkOrderDTO>> GetAllWorkOrders()
     {
         return Ok(_workOrderService.GetAllWorkOrders());

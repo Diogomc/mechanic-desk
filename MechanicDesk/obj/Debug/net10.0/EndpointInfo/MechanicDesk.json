@@ -775,10 +775,6 @@
       "CreateClientDTO": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "name": {
             "type": "string",
             "nullable": true
@@ -817,9 +813,9 @@
           "isFinished": {
             "type": "boolean"
           },
-          "carId": {
-            "type": "integer",
-            "format": "int32"
+          "licencePlate": {
+            "type": "string",
+            "nullable": true
           },
           "clientId": {
             "type": "integer",
