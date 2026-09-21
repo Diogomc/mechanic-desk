@@ -21,8 +21,9 @@ public class ClientService : IClientServices
 
     public IEnumerable<GetClientDTO> GetAll()
     {
-        
+
         return _unitOfWork.Clients.GetAll().ToGetClientDTOList();
+        
     }
     public GetClientDTO GetById(int id)
     {

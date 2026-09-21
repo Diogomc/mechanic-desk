@@ -1,5 +1,6 @@
 ﻿using MechanicDesk.DTOs.CarDTO;
 using MechanicDesk.Models;
+using System.Runtime.ConstrainedExecution;
 
 namespace MechanicDesk.Mappers.CarMappers;
 
@@ -25,6 +26,7 @@ public static class GetCarDTOMappingExtensions
             Year = car.Year,
             Brand = car.Brand,
             LicencePlate = car.LicencePlate,
+            ClientId = car.ClientId
         };
     }
     public static IEnumerable<GetCarDTO> ToCarDTOList(this IEnumerable<Car> cars)
@@ -36,6 +38,7 @@ public static class GetCarDTOMappingExtensions
             Year = cars.Year,
             Brand = cars.Brand,
             LicencePlate = cars.LicencePlate,
+            ClientId = cars.ClientId
         });
         
     }

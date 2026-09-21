@@ -1,4 +1,5 @@
-﻿using MechanicDesk.DTOs.ClientDTO;
+﻿using MechanicDesk.DTOs.CarDTO;
+using MechanicDesk.DTOs.ClientDTO;
 using MechanicDesk.Models;
 
 namespace MechanicDesk.Mappers.ClientMappers;
@@ -23,6 +24,15 @@ public static class GetClientDTOMappingExtensions
             BirthDate = client.BirthDate,
             Name = client.Name,
             PhoneNumber = client.PhoneNumber,
+            Cars = client.Cars.Select(car => new GetCarDTO
+            {
+                Id = car.Id,
+                Model = car.Model,
+                Year = car.Year,
+                Brand = car.Brand,
+                LicencePlate = car.LicencePlate,
+                ClientId = car.ClientId
+            }).ToList()
         };
     }
     public static IEnumerable<GetClientDTO> ToGetClientDTOList(this IEnumerable<Client> clients)
@@ -33,6 +43,15 @@ public static class GetClientDTOMappingExtensions
             BirthDate = clients.BirthDate,
             Name = clients.Name,
             PhoneNumber = clients.PhoneNumber,
-        });
+            Cars = clients.Cars.Select(car => new GetCarDTO
+            {
+                Id = car.Id,
+                Model = car.Model,
+                Year = car.Year,
+                Brand = car.Brand,
+                LicencePlate = car.LicencePlate,
+                ClientId = car.ClientId
+            }).ToList()
+        }).ToList();
     }
 }
