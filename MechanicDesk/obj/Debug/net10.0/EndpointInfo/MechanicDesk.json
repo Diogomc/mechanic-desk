@@ -1096,6 +1096,13 @@
           "clientId": {
             "type": "integer",
             "format": "int32"
+          },
+          "workOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetWorkOrderDTO"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

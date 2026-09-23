@@ -9,10 +9,18 @@ public class ClientRepository : Repository<Client>, IClientRepository
     public ClientRepository(AppDbContext context) : base(context)
     {
     }
-    public override IEnumerable<Client> GetAll()
+    public IEnumerable<Client> GetAllClientsFullInfos()
     {
         return _context.Clients
             .Include(c => c.Cars)
+            .AsNoTracking()
             .ToList();
+    }
+    public Client? GetClientFullInformationById(int id)
+    {
+        return _context.Clients
+            .Include(c => c.Cars)
+            .AsNoTracking()
+            .FirstOrDefault(c => c.Id == id);
     }
 }

@@ -45,7 +45,6 @@ public static class GetClientDTOMappingExtensions
             PhoneNumber = clients.PhoneNumber,
             Cars = clients.Cars.Select(car => new GetCarDTO
             {
-                Id = car.Id,
                 Model = car.Model,
                 Year = car.Year,
                 Brand = car.Brand,

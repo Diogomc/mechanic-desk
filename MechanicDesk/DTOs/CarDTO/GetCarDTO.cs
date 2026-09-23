@@ -1,4 +1,6 @@
-﻿namespace MechanicDesk.DTOs.CarDTO;
+﻿using MechanicDesk.DTOs.WorkOrderDTO;
+
+namespace MechanicDesk.DTOs.CarDTO;
 
 public class GetCarDTO 
 {
@@ -8,4 +10,5 @@ public class GetCarDTO
     public string Brand { get; set; } = string.Empty;
     public string LicencePlate { get; set; } = string.Empty;
     public int ClientId { get; set; }
+    public List<GetWorkOrderDTO> WorkOrders { get; set; } = new();
 }

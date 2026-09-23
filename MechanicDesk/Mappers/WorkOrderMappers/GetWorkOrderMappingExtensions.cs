@@ -44,6 +44,7 @@ public static class GetWorkOrderMappingExtensions
             IsFinished = workOrders.IsFinished,
             WorkOrderParts = workOrders.WorkOrderParts,
             WorkOrderServices = workOrders.WorkOrderServices,
+            
         });
     }
 }

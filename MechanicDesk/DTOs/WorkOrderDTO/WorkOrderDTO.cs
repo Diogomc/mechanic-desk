@@ -4,6 +4,7 @@ namespace MechanicDesk.DTOs.WorkOrderDTO;
 
 public class WorkOrderDTO
 {
+    public int Id {  get; set; }
     public string ProblemDescription { get; set; } = string.Empty;
     public DateTime InitialDate { get; set; }
     public DateTime? FinalDate { get; set; }

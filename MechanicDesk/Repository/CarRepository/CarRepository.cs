@@ -9,10 +9,11 @@ public class CarRepository : Repository<Car>, ICarRepository
     public CarRepository(AppDbContext context) : base(context)
     {
     }
-    public IEnumerable<Car> GetAll()
+
+    public override IEnumerable<Car> GetAll()
     {
         return _context.Cars
-            .Include(c => c.Client)
-            .ToList();
+            .Include(w => w.WorkOrders);
     }
+    
 }

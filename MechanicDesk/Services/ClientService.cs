@@ -22,12 +22,12 @@ public class ClientService : IClientServices
     public IEnumerable<GetClientDTO> GetAll()
     {
 
-        return _unitOfWork.Clients.GetAll().ToGetClientDTOList();
+        return _unitOfWork.Clients.GetAllClientsFullInfos().ToGetClientDTOList();
         
     }
     public GetClientDTO GetById(int id)
     {
-        var getId = _unitOfWork.Clients.GetById(c => c.Id == id);
+        var getId = _unitOfWork.Clients.GetClientFullInformationById(id);
 
         if (getId is null) 
         { 

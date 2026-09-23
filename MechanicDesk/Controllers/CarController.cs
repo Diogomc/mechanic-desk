@@ -25,7 +25,14 @@ public class CarController : ControllerBase
     [HttpGet("{id:int}", Name = "GetCarById")]
     public ActionResult<GetCarDTO> GetCarById(int id)
     {
-        return Ok(_carServices.GetCarByID(id));
+        try
+        {
+            return Ok(_carServices.GetCarByID(id));
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return Ok(ex.Message);
+        }
     }
 
     [HttpPost]
