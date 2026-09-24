@@ -14,8 +14,8 @@ public static class UpdateWorkOrderMappingExtensions
             FinalDate = updateWorkOrderDTO.FinalDate,
             WorkerName = updateWorkOrderDTO.WorkerName,
             IsFinished = updateWorkOrderDTO.IsFinished,
-            WorkOrderParts = updateWorkOrderDTO.WorkOrderParts,
-            WorkOrderServices = updateWorkOrderDTO.WorkOrderServices,
+            CarId = updateWorkOrderDTO.CarId,
+            ClientId = updateWorkOrderDTO.ClientId
         };
     }
     public static UpdateWorkOrderDTO ToUpdateWorkOrderDTO(this WorkOrder workOrder)
@@ -28,8 +28,8 @@ public static class UpdateWorkOrderMappingExtensions
             FinalDate = workOrder.FinalDate,
             WorkerName = workOrder.WorkerName,
             IsFinished = workOrder.IsFinished,
-            WorkOrderParts = workOrder.WorkOrderParts,
-            WorkOrderServices = workOrder.WorkOrderServices,
+            CarId = workOrder.CarId,
+            ClientId = workOrder.ClientId
         };
     }
 }

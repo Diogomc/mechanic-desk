@@ -10,6 +10,8 @@ public class GetWorkOrderDTO
     public DateTime? FinalDate { get; set; }
     public string WorkerName { get; set; } = string.Empty;
     public bool IsFinished { get; set; }
+    public int ClientId { get; set; }
+    public int CarId { get; set; }
 
 
     public List<WorkOrderService> WorkOrderServices { get; set; } = new();

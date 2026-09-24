@@ -1063,6 +1063,10 @@
             "type": "string",
             "nullable": true
           },
+          "carId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "clientId": {
             "type": "integer",
             "format": "int32"
@@ -1162,6 +1166,14 @@
           },
           "isFinished": {
             "type": "boolean"
+          },
+          "clientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "carId": {
+            "type": "integer",
+            "format": "int32"
           },
           "workOrderServices": {
             "type": "array",
@@ -1314,19 +1326,13 @@
           "isFinished": {
             "type": "boolean"
           },
-          "workOrderServices": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WorkOrderService"
-            },
-            "nullable": true
+          "carId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "workOrderParts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WorkOrderParts"
-            },
-            "nullable": true
+          "clientId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

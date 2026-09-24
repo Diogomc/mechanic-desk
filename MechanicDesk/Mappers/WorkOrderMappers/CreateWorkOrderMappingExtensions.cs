@@ -14,6 +14,7 @@ public static class CreateWorkOrderMappingExtensions
             FinalDate = createWorkOrderDTO.FinalDate,
             WorkerName = createWorkOrderDTO.WorkerName,
             IsFinished = createWorkOrderDTO.IsFinished,
+            CarId = createWorkOrderDTO.CarId
         };
     }
     public static CreateWorkOrderDTO ToCreateWorkOrderDTO(this WorkOrder workOrder)
@@ -24,7 +25,8 @@ public static class CreateWorkOrderMappingExtensions
             InitialDate = workOrder.InitialDate,
             FinalDate = workOrder.FinalDate,
             WorkerName = workOrder.WorkerName,
-            IsFinished = workOrder.IsFinished,        
+            IsFinished = workOrder.IsFinished,  
+            CarId = workOrder.CarId            
         };
     }
 

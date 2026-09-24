@@ -43,10 +43,14 @@ public static class GetCarDTOMappingExtensions
             ClientId = cars.ClientId,
             WorkOrders = cars.WorkOrders.Select(workOrder => new GetWorkOrderDTO
             {
+                Id = workOrder.Id,
+                ProblemDescription = workOrder.ProblemDescription,
                 InitialDate = workOrder.InitialDate,
                 FinalDate = workOrder.FinalDate,
                 WorkerName = workOrder.WorkerName,
-                IsFinished = workOrder.IsFinished
+                IsFinished = workOrder.IsFinished,
+                CarId = workOrder.CarId,
+                ClientId = workOrder.ClientId                           
             }).ToList()
         });
         

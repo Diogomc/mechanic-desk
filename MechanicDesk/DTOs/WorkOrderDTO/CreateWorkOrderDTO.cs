@@ -12,5 +12,6 @@ public class CreateWorkOrderDTO
     public bool IsFinished { get; set; }
 
     public string LicencePlate { get; set; } = string.Empty;
+    public int CarId { get; set; }
     public int ClientId { get; set; }
 }

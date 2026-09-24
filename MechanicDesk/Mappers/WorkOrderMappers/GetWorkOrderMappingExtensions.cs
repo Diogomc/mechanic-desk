@@ -23,11 +23,14 @@ public static class GetWorkOrderMappingExtensions
     {
         return new GetWorkOrderDTO
         {
+            Id = workOrder.Id,
             ProblemDescription = workOrder.ProblemDescription,
             InitialDate = workOrder.InitialDate,
             FinalDate = workOrder.FinalDate,
             WorkerName = workOrder.WorkerName,
             IsFinished = workOrder.IsFinished,
+            ClientId = workOrder.ClientId,
+            CarId = workOrder.CarId,
             WorkOrderParts = workOrder.WorkOrderParts,
             WorkOrderServices = workOrder.WorkOrderServices,
         };
@@ -37,14 +40,14 @@ public static class GetWorkOrderMappingExtensions
     {
         return workOrders.Select(workOrders => new GetWorkOrderDTO
         {
+            Id = workOrders.Id,
             ProblemDescription = workOrders.ProblemDescription,
             InitialDate = workOrders.InitialDate,
             FinalDate = workOrders.FinalDate,
             WorkerName = workOrders.WorkerName,
-            IsFinished = workOrders.IsFinished,
-            WorkOrderParts = workOrders.WorkOrderParts,
-            WorkOrderServices = workOrders.WorkOrderServices,
-            
-        });
+            CarId = workOrders.CarId,
+            ClientId = workOrders.ClientId,
+            IsFinished = workOrders.IsFinished,        
+        }).ToList();
     }
 }
