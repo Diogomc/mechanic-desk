@@ -9,6 +9,7 @@ public static class UpdateWorkOrderMappingExtensions
     {
         return new WorkOrder
         {
+            Id = updateWorkOrderDTO.Id,
             ProblemDescription = updateWorkOrderDTO.ProblemDescription,
             InitialDate = updateWorkOrderDTO.InitialDate,
             FinalDate = updateWorkOrderDTO.FinalDate,

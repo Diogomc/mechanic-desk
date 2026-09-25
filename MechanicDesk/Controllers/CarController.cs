@@ -69,7 +69,7 @@ public class CarController : ControllerBase
     [HttpDelete("{id:int}")]
     public ActionResult<Car> DeleteCar(int id)
     {
-        var car = _carServices.GetCarByID(id);
+        var car = _carServices.Delete(id);
 
         return Ok(car);
     }

@@ -19,7 +19,7 @@ public class CarServices : ICarServices
     }
     public GetCarDTO GetCarByID(int id)
     {
-        var carId = _unitOfWork.Cars.GetById(c => c.Id == id);
+        var carId = _unitOfWork.Cars.GetCarFullInformationById(id);
 
         if (carId is null) throw new KeyNotFoundException($"Car by Id: {id} is not found");
 

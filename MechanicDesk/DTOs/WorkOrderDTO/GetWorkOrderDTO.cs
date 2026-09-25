@@ -13,7 +13,6 @@ public class GetWorkOrderDTO
     public int ClientId { get; set; }
     public int CarId { get; set; }
 
-
     public List<WorkOrderService> WorkOrderServices { get; set; } = new();
     public List<WorkOrderParts> WorkOrderParts { get; set; } = new();
 }

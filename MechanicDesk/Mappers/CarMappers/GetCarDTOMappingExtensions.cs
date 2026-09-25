@@ -2,6 +2,7 @@
 using MechanicDesk.DTOs.WorkOrderDTO;
 using MechanicDesk.Models;
 using MechanicDesk.Models.WorkOrderAgg;
+using Microsoft.Data.SqlClient;
 using System.Runtime.ConstrainedExecution;
 
 namespace MechanicDesk.Mappers.CarMappers;
@@ -29,6 +30,17 @@ public static class GetCarDTOMappingExtensions
             Brand = car.Brand,
             LicencePlate = car.LicencePlate,
             ClientId = car.ClientId,
+            WorkOrders = car.WorkOrders.Select(workOrder => new GetWorkOrderDTO
+            {
+                Id = workOrder.Id,
+                ProblemDescription = workOrder.ProblemDescription,
+                InitialDate = workOrder.InitialDate,
+                FinalDate = workOrder.FinalDate,
+                WorkerName = workOrder.WorkerName,
+                IsFinished = workOrder.IsFinished,
+                CarId = workOrder.CarId,
+                ClientId = workOrder.ClientId
+            }).ToList()
         };
     }
     public static IEnumerable<GetCarDTO> ToCarDTOList(this IEnumerable<Car> cars)

@@ -15,5 +15,12 @@ public class CarRepository : Repository<Car>, ICarRepository
         return _context.Cars
             .Include(w => w.WorkOrders);
     }
+    public Car? GetCarFullInformationById(int id)
+    {
+        return _context.Cars
+            .Include(w => w.WorkOrders)
+            .AsNoTracking()
+            .FirstOrDefault(c => c.Id == id);
+    }
     
 }

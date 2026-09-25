@@ -14,6 +14,7 @@ public static class UpdateCarDTOMappingExtensions
             Year = updateCarDTO.Year,
             Brand = updateCarDTO.Brand,
             LicencePlate = updateCarDTO.LicencePlate,
+            ClientId = updateCarDTO.ClientId
         };
     }
     public static UpdateCarDTO ToUpdateCarDTO(this Car car)
@@ -25,6 +26,7 @@ public static class UpdateCarDTOMappingExtensions
             Year = car.Year,
             Brand = car.Brand,
             LicencePlate = car.LicencePlate,
+            ClientId = car.ClientId
         };
     }
 }
