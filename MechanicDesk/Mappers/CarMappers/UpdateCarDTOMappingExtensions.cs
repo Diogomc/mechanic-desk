@@ -5,16 +5,16 @@ namespace MechanicDesk.Mappers.CarMappers;
 
 public static class UpdateCarDTOMappingExtensions
 {
-    public static Car ToUpdateCar(this UpdateCarDTO updateCarDTO)
+    public static void ToUpdateCar(this UpdateCarDTO updateCarDTO, Car car)
     {
-        return new Car
+        
         {
-            Id = updateCarDTO.Id,
-            Model = updateCarDTO.Model,
-            Year = updateCarDTO.Year,
-            Brand = updateCarDTO.Brand,
-            LicencePlate = updateCarDTO.LicencePlate,
-            ClientId = updateCarDTO.ClientId
+            car.Id = updateCarDTO.Id;
+            car.Model = updateCarDTO.Model;
+            car.Year = updateCarDTO.Year;
+            car.Brand = updateCarDTO.Brand;
+            car.LicencePlate = updateCarDTO.LicencePlate;
+            car.ClientId = updateCarDTO.ClientId;
         };
     }
     public static UpdateCarDTO ToUpdateCarDTO(this Car car)

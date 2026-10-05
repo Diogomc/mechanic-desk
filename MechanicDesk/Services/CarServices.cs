@@ -36,14 +36,15 @@ public class CarServices : ICarServices
     }
     public UpdateCarDTO UpdateCar(int id, UpdateCarDTO updateCarDTO)
     {
-        var updated = updateCarDTO.ToUpdateCar();
-        if (updated.Id != id) throw new ArgumentException("IDs do not match");
+        var getCar = _unitOfWork.Cars.GetById(c => c.Id == id);
+        if(getCar is null) throw new KeyNotFoundException($"Car by Id: {id} is not found");
 
-        _unitOfWork.Cars.Update(updated);
-        if (updated is null) throw new KeyNotFoundException($"Car by Id: {id} is not found");
+        updateCarDTO.ToUpdateCar(getCar);
 
+        _unitOfWork.Cars.Update(getCar);
         _unitOfWork.Commit();
-        return updated.ToUpdateCarDTO();
+
+        return getCar.ToUpdateCarDTO();
     }
     public Car Delete(int id)
     {
