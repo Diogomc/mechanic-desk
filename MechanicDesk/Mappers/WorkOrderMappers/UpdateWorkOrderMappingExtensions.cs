@@ -5,19 +5,15 @@ namespace MechanicDesk.Mappers.WorkOrderMappers;
 
 public static class UpdateWorkOrderMappingExtensions
 {
-    public static WorkOrder ToWorkOrder(this UpdateWorkOrderDTO updateWorkOrderDTO)
+    public static void ToWorkOrder(this UpdateWorkOrderDTO updateWorkOrderDTO, WorkOrder workOrder)
     {
-        return new WorkOrder
-        {
-            Id = updateWorkOrderDTO.Id,
-            ProblemDescription = updateWorkOrderDTO.ProblemDescription,
-            InitialDate = updateWorkOrderDTO.InitialDate,
-            FinalDate = updateWorkOrderDTO.FinalDate,
-            WorkerName = updateWorkOrderDTO.WorkerName,
-            IsFinished = updateWorkOrderDTO.IsFinished,
-            CarId = updateWorkOrderDTO.CarId,
-            ClientId = updateWorkOrderDTO.ClientId
-        };
+            workOrder.ProblemDescription = updateWorkOrderDTO.ProblemDescription;
+            workOrder.InitialDate = updateWorkOrderDTO.InitialDate;
+            workOrder.FinalDate = updateWorkOrderDTO.FinalDate;
+            workOrder.WorkerName = updateWorkOrderDTO.WorkerName;
+            workOrder.IsFinished = updateWorkOrderDTO.IsFinished;
+            workOrder.CarId = updateWorkOrderDTO.CarId;
+            workOrder.ClientId = updateWorkOrderDTO.ClientId;
     }
     public static UpdateWorkOrderDTO ToUpdateWorkOrderDTO(this WorkOrder workOrder)
     {

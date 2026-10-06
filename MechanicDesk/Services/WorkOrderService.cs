@@ -50,15 +50,15 @@ public class WorkOrderService : IWorkOrderService
     }
     public UpdateWorkOrderDTO UpdateWorkOrder(int id, UpdateWorkOrderDTO updateWorkOrderDTO)
     {
-        var workOrder = updateWorkOrderDTO.ToWorkOrder();
-        if (id != updateWorkOrderDTO.Id) throw new ArgumentException("IDs do not match ");
+        var getWorkOrder = _unitOfWork.WorkOrders.GetById(wo => wo.Id == id);
+        if(getWorkOrder is null) throw new KeyNotFoundException($"Work order by id: {id} is not found");
 
-        var updated = _unitOfWork.WorkOrders.Update(workOrder);
-        if (updated is null) throw new KeyNotFoundException($"Work Order by Id: {id} not found");
+        updateWorkOrderDTO.ToWorkOrder(getWorkOrder);
 
+        _unitOfWork.WorkOrders.Update(getWorkOrder);
         _unitOfWork.Commit();
 
-        return updated.ToUpdateWorkOrderDTO();
+        return getWorkOrder.ToUpdateWorkOrderDTO();
     }
 
     public WorkOrder Delete(int id)
