@@ -5,14 +5,13 @@ namespace MechanicDesk.Mappers.ClientMappers;
 
 public static class UpdateClientDTOMappingExtensions
 {
-    public static Client ToClient(this UpdateClientDTO updateClientDTO)
+    public static void ToUpdateClient(this UpdateClientDTO updateClientDTO, Client client)
     {
-        return new Client
         {
-            Id = updateClientDTO.Id,
-            Name = updateClientDTO.Name,
-            PhoneNumber = updateClientDTO.PhoneNumber,
-            BirthDate = updateClientDTO.BirthDate,
+            client.Id = updateClientDTO.Id;
+            client.Name = updateClientDTO.Name;
+            client.PhoneNumber = updateClientDTO.PhoneNumber;
+            client.BirthDate = updateClientDTO.BirthDate;
         };
     }
     public static UpdateClientDTO ToUpdateClientDTO(this Client client)

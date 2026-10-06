@@ -48,15 +48,15 @@ public class ClientService : IClientServices
     }
     public UpdateClientDTO Update(int id, UpdateClientDTO updateClientDTO)
     {
-        var client = updateClientDTO.ToClient();
-        if (client.Id != id) throw new ArgumentException("IDs do not match");
+        var getClient = _unitOfWork.Clients.GetById(c => c.Id == id);
+        if (getClient is null) throw new KeyNotFoundException($"Client by id: {id} is not found");
 
-        var update = _unitOfWork.Clients.Update(client);
-        if (update is null) throw new KeyNotFoundException($"Client by id: {id} is not found");
+        updateClientDTO.ToUpdateClient(getClient);
 
+        _unitOfWork.Clients.Update(getClient);
         _unitOfWork.Commit();
-        return update.ToUpdateClientDTO();
 
+        return getClient.ToUpdateClientDTO();
     }
     public Client Delete(int id)
     {
