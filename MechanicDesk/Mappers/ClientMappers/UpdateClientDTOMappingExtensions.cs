@@ -7,12 +7,9 @@ public static class UpdateClientDTOMappingExtensions
 {
     public static void ToUpdateClient(this UpdateClientDTO updateClientDTO, Client client)
     {
-        {
-            client.Id = updateClientDTO.Id;
             client.Name = updateClientDTO.Name;
             client.PhoneNumber = updateClientDTO.PhoneNumber;
             client.BirthDate = updateClientDTO.BirthDate;
-        };
     }
     public static UpdateClientDTO ToUpdateClientDTO(this Client client)
     {

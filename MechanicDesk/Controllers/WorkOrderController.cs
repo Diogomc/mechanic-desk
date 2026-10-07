@@ -24,9 +24,15 @@ public class WorkOrderController : ControllerBase
     [HttpGet("{id:int}", Name = "GetWorkOrderById")]
     public ActionResult<GetWorkOrderDTO> GetById(int id)
     {
-        var workOrder = _workOrderService.GetById(id);
-
-        return Ok(workOrder);
+        try
+        {
+            var workOrder = _workOrderService.GetById(id);
+            return Ok(workOrder);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }
 
     [HttpPost]
@@ -61,7 +67,7 @@ public class WorkOrderController : ControllerBase
         }
         catch (KeyNotFoundException ex)
         {
-            return BadRequest(ex.Message);
+            return NotFound(ex.Message);
         }
     }
     [HttpDelete("{id:int}")]
@@ -74,7 +80,7 @@ public class WorkOrderController : ControllerBase
         }
         catch(KeyNotFoundException ex)
         {
-            return BadRequest(ex.Message);
+            return NotFound(ex.Message);
         }
     }
 }

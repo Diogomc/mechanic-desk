@@ -24,7 +24,7 @@ public class WorkOrderService : IWorkOrderService
 
         var workOrder = _unitOfWork.WorkOrders.GetById(wo => wo.Id == id);
 
-        if (workOrder is null) throw new Exception("Work order not found");
+        if (workOrder is null) throw new KeyNotFoundException("Work order not found");
 
         return workOrder.ToWorkOrderDTO();
 

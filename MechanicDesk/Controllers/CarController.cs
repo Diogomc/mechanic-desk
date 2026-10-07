@@ -31,7 +31,7 @@ public class CarController : ControllerBase
         }
         catch (KeyNotFoundException ex)
         {
-            return Ok(ex.Message);
+            return NotFound(ex.Message);
         }
     }
 

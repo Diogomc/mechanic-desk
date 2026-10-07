@@ -15,7 +15,7 @@ public static class CreateClientMappingExtensions
         };
     }
     
-    public static CreateClientDTO ToCreateClientDTO(Client client)
+    public static CreateClientDTO ToCreateClientDTO(this Client client)
     {
         return new CreateClientDTO
         {
